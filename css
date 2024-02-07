@@ -1,22 +1,42 @@
-.calendar-container {
-    max-width: 400px;
-    margin: 0 auto;
+/* styles.css */
+
+/* Basic styles for header, navigation, sections, and footer */
+header, footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
     text-align: center;
 }
 
-.calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+nav ul li {
+    display: inline;
+    margin: 0 10px;
 }
 
-.calendar-grid {
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+/* Styles for the calendar display */
+#calendar-container {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* Example grid layout */
+    gap: 10px;
 }
 
-.calendar-day {
-    border: 1px solid #ccc;
-    padding: 10px;
-}
+/* Additional styles can be added for form elements, etc. */
