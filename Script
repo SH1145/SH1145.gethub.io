@@ -1,45 +1,34 @@
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const calendarTitle = document.getElementById('calendarTitle');
-const calendarGrid = document.getElementById('calendarGrid');
+// script.js
 
-const today = new Date();
-let currentMonth = today.getMonth();
-let currentYear = today.getFullYear();
-
+// Function to dynamically generate the calendar content
 function generateCalendar() {
-    calendarTitle.textContent = `${new Date(currentYear, currentMonth).toLocaleString('default', { month: 'long' })} ${currentYear}`;
+    const calendarContainer = document.getElementById("calendar-container");
 
-    calendarGrid.innerHTML = '';
+    // Clear any existing content
+    calendarContainer.innerHTML = "";
 
-    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    // Example: Generate calendar months dynamically
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    for (let i = 1; i <= daysInMonth; i++) {
-        const dayElement = document.createElement('div');
-        dayElement.classList.add('calendar-day');
-        dayElement.textContent = i;
-        calendarGrid.appendChild(dayElement);
-    }
+    months.forEach(month => {
+        const monthDiv = document.createElement("div");
+        monthDiv.textContent = month;
+        calendarContainer.appendChild(monthDiv);
+    });
 }
 
-prevBtn.addEventListener('click', () => {
-    if (currentMonth === 0) {
-        currentMonth = 11;
-        currentYear--;
-    } else {
-        currentMonth--;
-    }
-    generateCalendar();
+// Event listener for form submission
+document.getElementById("profile-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Example: Get form data and handle submission
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+
+    // Perform validation and submit data (not implemented in this example)
+    console.log("Username:", username);
+    console.log("Email:", email);
 });
 
-nextBtn.addEventListener('click', () => {
-    if (currentMonth === 11) {
-        currentMonth = 0;
-        currentYear++;
-    } else {
-        currentMonth++;
-    }
-    generateCalendar();
-});
-
+// Initial call to generate calendar content
 generateCalendar();
